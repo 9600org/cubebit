@@ -19,14 +19,15 @@ func main() {
 	}
 	defer done()
 
-	col := color.RGBA{255, 0, 0, 255}
 	for i := 0; ; i++ {
+		p := float64(i)
+		col := color.RGBA{uint8(127+127*math.Sin(p/100.0)),
+									    0, //uint8(127+63*math.Sin(p/200.0)),
+											0, //uint8(127+63*math.Sin(p/300.0)),
+											255}
 		for z := 0; z < 5; z++ {
 			for y := 0; y < 5; y++ {
 				for x := 0; x < 5; x++ {
-					col.R = uint8(127 + 127*math.Sin(float64(i*2+x+y*5+z*25)/float64(5)))
-					col.G = uint8(127 + 127*math.Sin(float64(i+x+y*5+z*25)/float64(10)))
-					col.B = uint8(127 + 127*math.Sin(float64(i*3+x+y*5+z*25)/float64(15)))
 					c.Set(x, y, z, col)
 				}
 			}

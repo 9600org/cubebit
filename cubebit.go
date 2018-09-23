@@ -13,6 +13,7 @@ type Cubebit struct {
 	sizeZ int
 }
 
+
 func New(config *ws281x.HardwareConfig, sx, sy, sz int) (*Cubebit, func() error, error) {
 	width := sx
 	height := sy*sz
@@ -39,5 +40,9 @@ func (c *Cubebit) Set(x, y, z int, col color.RGBA) {
 
 func (c *Cubebit) Render() {
 	c.canvas.Render()
+}
+
+func (c *Cubebit) Bounds() (int, int, int) {
+	return c.sizeX, c.sizeY, c.sizeZ
 }
 
