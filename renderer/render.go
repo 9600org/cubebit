@@ -1,3 +1,4 @@
+// renderer provides a simple 3d renderer for simple objects onto Cube:Bit.
 package renderer
 
 import (
@@ -8,29 +9,44 @@ import (
 	"github.com/9600org/cubebit"
 )
 
+// Object is a thing to be rendered.
 type Object interface {
+	// At returns the colour at the given point in space.
 	At(x, y, z float64) color.RGBA
 }
 
+// Sphere represents a sphere to be rendered
 type Sphere struct {
-	CentreX, CentreY, CentreZ, Radius float64
-	CentreColor, EdgeColour           color.RGBA
+	// CentreX, CentreY, and CentreZ specify the centre of the sphere in space.
+	// The visible space is in the range [0..1]
+	CentreX, CentreY, CentreZ float64
+	// Radius is the radius of the sphere.
+	Radius float
+	// CentreColour is the colour of the sphere at its centre.
+	CentreColour color.RGBA
+	// EdgeColour is the colour of the sphere at its edge.
+	EdgeColour           color.RGBA
 }
 
+// Renderer is a *very* simple renderer for objects on the Cube:Bit volume.
 type Renderer struct {
 	c *cubebit.Cubebit
 
 	objects []Object
 }
 
+// New creates a new Renderer.
 func New(c *cubebit.Cubebit) *Renderer {
 	return &Renderer{c: c}
 }
 
+// Add adds an object to be rendered.
 func (r *Renderer) Add(o Object) {
 	r.objects = append(r.objects, o)
 }
 
+// gamma is a gamma correction table.
+// TODO(al): Move this down to the cubebit package.
 var gamma = []uint8{
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1,
@@ -49,6 +65,7 @@ var gamma = []uint8{
 	177, 180, 182, 184, 186, 189, 191, 193, 196, 198, 200, 203, 205, 208, 210, 213,
 	215, 218, 220, 223, 225, 228, 231, 233, 236, 239, 241, 244, 247, 249, 252, 255}
 
+// Render renders the objects onto the Cube:Bit LEDs.
 func (r *Renderer) Render() {
 	sx, sz, sy := r.c.Bounds()
 	sxf := float64(sx - 1)
@@ -66,11 +83,6 @@ func (r *Renderer) Render() {
 					lb += b >> 8
 					n++
 				}
-				/*
-					if lr <= 10 {lr = 10}
-					if lg <= 10 {lg = 10}
-					if lb <= 10 {lb = 10}
-				*/
 				r.c.Set(x, y, z, color.RGBA{gamma[uint8(lr / n)], gamma[uint8(lg / n)], gamma[uint8(lb / n)], 255})
 			}
 		}
@@ -78,6 +90,7 @@ func (r *Renderer) Render() {
 	r.c.Render()
 }
 
+// blend returns a colour between a and b, according to the ratio specified.
 func blend(a, b color.Color, blend float64) color.RGBA {
 	inv := float64(0) // float64(1)-blend
 	ar, ag, ab, aa := a.RGBA()
@@ -89,6 +102,7 @@ func blend(a, b color.Color, blend float64) color.RGBA {
 	return color.RGBA{uint8(or >> 8), uint8(og >> 8), uint8(ob >> 8), 255} //uint8(oa>>8)}
 }
 
+// At implements Object.At.
 func (s *Sphere) At(x, y, z float64) color.RGBA {
 	dx := (s.CentreX - x)
 	dy := (s.CentreY - y)
@@ -97,5 +111,5 @@ func (s *Sphere) At(x, y, z float64) color.RGBA {
 	if dist > s.Radius {
 		return color.RGBA{0, 0, 0, 0}
 	}
-	return blend(s.CentreColor, s.EdgeColour, float64(1)-((dist*dist)/s.Radius))
+	return blend(s.CentreColour, s.EdgeColour, float64(1)-((dist*dist)/s.Radius))
 }
