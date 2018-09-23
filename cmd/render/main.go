@@ -23,8 +23,8 @@ func main() {
 	r := renderer.New(c)
 
   s := []*renderer.Sphere{
-					&renderer.Sphere{0.5, 0.5, 0.5, 0.3, color.RGBA{128, 0, 255, 255}, color.RGBA{0, 0, 0, 255}},
-					&renderer.Sphere{0.5, 0.5, 0.5, 0.3, color.RGBA{0, 128, 128, 255}, color.RGBA{0, 0, 0, 255}},
+					&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{255, 0, 0, 255}, color.RGBA{0, 0, 0, 255}},
+					&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{0, 255, 0, 255}, color.RGBA{0, 0, 0, 255}},
 	}
 	for _, o := range s {
 					r.Add(o)
@@ -41,8 +41,8 @@ func main() {
 
 func posAtT(ti float64, tweak int) (float64, float64, float64) {
 				t := float64(tweak+1)/5.0
-				x := 0.5 + 0.3*math.Sin(ti*t)
-				y := 0.5 + 0.3*math.Sin(ti*1.2*t)
-				z := 0.5 + 0.3*math.Sin(ti*1.5*t)
+				x := 0.5 + 0.5*math.Sin(ti*t)
+				y := 0.5 + 0.5*math.Sin(ti*1.2*t)
+				z := 0.5 + 0.5*math.Sin(ti*1.5*t)
 				return x, y, z
 }

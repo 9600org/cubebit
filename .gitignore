@@ -4,7 +4,9 @@
 *.dll
 *.so
 *.dylib
-simple
+./simple$
+./fade$
+./renderer$
 
 # Test binary, build with `go test -c`
 *.test
