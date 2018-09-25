@@ -1,14 +1,21 @@
-# Golang Raspberry library for Cube:Bit
+# Golang Pi Zero library for the 4tronix Cube:Bit
 
-The Cube:Bit is a nifty 5x5x5 LED cube stack for use with various micros,
-including the Raspberry PI Zero. 
+The [Cube:Bit)[https://4tronix.co.uk/cubebit] is a nifty 5x5x5 LED cube
+stack for use with various micros, including the Raspberry PI Zero. 
 
-This library builds on the work of [libws281x]() and [somethingelse]() to
-provide an API which more closes matches the 3D cube of the physical device.
+This library builds on the work of [libws281x](https://github.com/jgarff/rpi_ws281x)
+and [Máximo Cuadros' nifty Golang wrapper of the same](https://github.com/mcuadros/go-rpi-ws281x)
+to provide an API which more closes matches the 3D cube of the physical
+device.
 
 While there's a bunch of support for using the *Cube:Bit* with the *BBC
 MicroBit*, I wasn't able to find much else for the Raspberry PI, so I knocked
 this up mainly just to play with it on the PI.
+
+This is a video of what it looks like:<br/>
+[![Video of cubebit demo running on 5x5x5 cube](http://img.youtube.com/vi/DZc7rKozVuI/0.jpg)](http://www.youtube.com/watch?v=DZc7rKozVuI "Cube:bit demo")
+
+
 
 # The hardware
 
