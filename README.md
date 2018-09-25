@@ -13,9 +13,7 @@ MicroBit*, I wasn't able to find much else for the Raspberry PI, so I knocked
 this up mainly just to play with it on the PI.
 
 This is a video of what it looks like:<br/>
-[![Video of cubebit demo running on 5x5x5 cube](http://freegifmaker.me/video/15378805283178041.gif)](http://www.youtube.com/watch?v=DZc7rKozVuI "Cube:bit demo")
-
-
+[![Video of cube:bit demo running on 5x5x5 cube](http://freegifmaker.me/img/res/1/5/3/7/9/0/1537907105275571.gif)](https://www.youtube.com/watch?v=nqZ-78w0zQs "Cube:bit demo")
 
 # The hardware
 
