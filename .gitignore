@@ -6,7 +6,7 @@
 *.dylib
 ./simple$
 ./fade$
-./renderer$
+./render$
 
 # Test binary, build with `go test -c`
 *.test
