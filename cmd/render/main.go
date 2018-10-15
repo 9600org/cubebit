@@ -8,7 +8,7 @@ import (
 
 	"github.com/9600org/cubebit"
 	"github.com/9600org/cubebit/renderer"
-	"github.com/mcuadros/go-rpi-ws281x"
+	"github.com/9600org/go-rpi-ws281x"
 )
 
 func main() {

@@ -4,7 +4,7 @@ package cubebit
 import (
 	"image/color"
 
-	"github.com/mcuadros/go-rpi-ws281x"
+	"github.com/9600org/go-rpi-ws281x"
 )
 
 // Cubebit represents an instance of the Cube:Bit hardware.

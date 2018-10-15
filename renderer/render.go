@@ -4,7 +4,6 @@ package renderer
 import (
 	"image/color"
 	"math"
-	// "fmt"
 
 	"github.com/9600org/cubebit"
 )
@@ -21,7 +20,7 @@ type Sphere struct {
 	// The visible space is in the range [0..1]
 	CentreX, CentreY, CentreZ float64
 	// Radius is the radius of the sphere.
-	Radius float
+	Radius float64
 	// CentreColour is the colour of the sphere at its centre.
 	CentreColour color.RGBA
 	// EdgeColour is the colour of the sphere at its edge.
