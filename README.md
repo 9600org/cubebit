@@ -1,6 +1,6 @@
 # Golang Pi Zero library for the 4tronix Cube:Bit
 
-The [Cube:Bit)[https://4tronix.co.uk/cubebit] is a nifty 5x5x5 LED cube
+The (Cube:Bit)[https://4tronix.co.uk/cubebit] is a nifty 5x5x5 LED cube
 stack for use with various micros, including the Raspberry PI Zero. 
 
 This library builds on the work of [libws281x](https://github.com/jgarff/rpi_ws281x)
@@ -49,7 +49,7 @@ but it's still a brilliant bit of fun.
 # The software
 
 It's all a bit hacky and very much work-in-progress, but the bits that are
-there dor *something* at least :)
+there do *something* at least :)
 
 There are some "demos" under the [cmd](cmd) directory, have a look at these to
 see some usage examples. 
@@ -58,3 +58,29 @@ of the LEDs.
 
 The `renderer` package is a simple layer which sits above `cubebit` and
 provides a mechanism for rendering simple shapes into the LED space.
+
+## Building
+
+Fetch this repo:
+   ```
+   export GOPATH=...
+   go get github.com/9600org/cubebit
+
+   # It'll complain about not finding -lws281x, so we need to build it:
+   cd ${GOPATH}/src/github.com/9600org/go-rpi-ws281x/vendor/rpi_ws281x
+   scons
+
+   ```
+
+Now we can build our code:
+   ```
+   cd ${GOPATH}/src/github.com/9600org/cubebit
+   go build ./cmd/render
+   ```
+
+Now you can run it:
+   ```
+   # Needs to be run as root for access to the hardware:
+   sudo ./render
+   ```
+
