@@ -1,6 +1,6 @@
 # Golang Pi Zero library for the 4tronix Cube:Bit
 
-The (Cube:Bit)[https://4tronix.co.uk/cubebit] is a nifty 5x5x5 LED cube
+The [Cube:Bit](https://4tronix.co.uk/cubebit) is a nifty 5x5x5 LED cube
 stack for use with various micros, including the Raspberry PI Zero. 
 
 This library builds on the work of [libws281x](https://github.com/jgarff/rpi_ws281x)
