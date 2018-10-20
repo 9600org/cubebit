@@ -21,10 +21,10 @@ func main() {
 
 	for i := 0; ; i++ {
 		p := float64(i)
-		col := color.RGBA{uint8(127+127*math.Sin(p/100.0)),
-									    0, //uint8(127+63*math.Sin(p/200.0)),
-											0, //uint8(127+63*math.Sin(p/300.0)),
-											255}
+		col := color.RGBA{uint8(127 + 127*math.Sin(p/100.0)),
+			0, //uint8(127+63*math.Sin(p/200.0)),
+			0, //uint8(127+63*math.Sin(p/300.0)),
+			255}
 		for z := 0; z < 5; z++ {
 			for y := 0; y < 5; y++ {
 				for x := 0; x < 5; x++ {
