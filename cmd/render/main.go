@@ -22,17 +22,17 @@ func main() {
 
 	r := renderer.New(c)
 
-  s := []*renderer.Sphere{
-					&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{255, 0, 0, 255}, color.RGBA{0, 0, 0, 255}},
-					&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{0, 255, 0, 255}, color.RGBA{0, 0, 0, 255}},
+	s := []*renderer.Sphere{
+		&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{255, 0, 0, 255}, color.RGBA{0, 0, 0, 255}},
+		&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{0, 255, 0, 255}, color.RGBA{0, 0, 0, 255}},
 	}
 	for _, o := range s {
-					r.Add(o)
+		r.Add(o)
 	}
 
-	for t := float64(0.1); ; t+=float64(0.1) {
-					for i, o := range s {
-						o.CentreX, o.CentreY, o.CentreZ = posAtT(t, i)
+	for t := float64(0.1); ; t += float64(0.1) {
+		for i, o := range s {
+			o.CentreX, o.CentreY, o.CentreZ = posAtT(t, i)
 		}
 		r.Render()
 		time.Sleep(10 * time.Millisecond)
@@ -40,9 +40,9 @@ func main() {
 }
 
 func posAtT(ti float64, tweak int) (float64, float64, float64) {
-				t := float64(tweak+1)/5.0
-				x := 0.5 + 0.5*math.Sin(ti*t)
-				y := 0.5 + 0.5*math.Sin(ti*1.2*t)
-				z := 0.5 + 0.5*math.Sin(ti*1.5*t)
-				return x, y, z
+	t := float64(tweak+1) / 5.0
+	x := 0.5 + 0.5*math.Sin(ti*t)
+	y := 0.5 + 0.5*math.Sin(ti*1.2*t)
+	z := 0.5 + 0.5*math.Sin(ti*1.5*t)
+	return x, y, z
 }

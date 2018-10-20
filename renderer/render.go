@@ -24,7 +24,7 @@ type Sphere struct {
 	// CentreColour is the colour of the sphere at its centre.
 	CentreColour color.RGBA
 	// EdgeColour is the colour of the sphere at its edge.
-	EdgeColour           color.RGBA
+	EdgeColour color.RGBA
 }
 
 // Renderer is a *very* simple renderer for objects on the Cube:Bit volume.
@@ -82,7 +82,7 @@ func (r *Renderer) Render() {
 					lb += b >> 8
 					n++
 				}
-				r.c.Set(x, y, z, color.RGBA{gamma[uint8(lr / n)], gamma[uint8(lg / n)], gamma[uint8(lb / n)], 255})
+				r.c.Set(x, y, z, color.RGBA{gamma[uint8(lr/n)], gamma[uint8(lg/n)], gamma[uint8(lb/n)], 255})
 			}
 		}
 	}
