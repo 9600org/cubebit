@@ -7,12 +7,12 @@ import (
 	"time"
 
 	"github.com/9600org/cubebit"
-	"github.com/mcuadros/go-rpi-ws281x"
+	"github.com/9600org/go-rpi-ws281x"
 )
 
 func main() {
 	config := ws281x.DefaultConfig
-	config.Pin = 18
+	config.Brightness = 255
 	c, done, err := cubebit.New(&config, 5, 5, 5)
 	if err != nil {
 		log.Fatalf("Failed to create new cubebit: %v", err)
