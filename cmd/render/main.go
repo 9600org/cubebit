@@ -24,7 +24,7 @@ func main() {
 
 	s := []*renderer.Sphere{
 		&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{255, 0, 0, 255}, color.RGBA{0, 0, 0, 255}},
-		&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{0, 255, 0, 255}, color.RGBA{0, 0, 0, 255}},
+		&renderer.Sphere{0.5, 0.5, 0.5, 0.9, color.RGBA{0, 0, 255, 255}, color.RGBA{0, 0, 0, 255}},
 	}
 	for _, o := range s {
 		r.Add(o)
