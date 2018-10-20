@@ -7,6 +7,7 @@
 ./simple$
 ./fade$
 ./render$
+./tron$
 
 # Test binary, build with `go test -c`
 *.test

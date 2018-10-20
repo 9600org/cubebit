@@ -72,6 +72,18 @@ func (c *Cubebit) Set(x, y, z int, col color.RGBA) {
 	c.canvas.Set(x, page+y, gammafy(col))
 }
 
+func (c *Cubebit) At(x, y, z int) color.RGBA {
+	if z%2 == 1 {
+		y, x = c.sizeY-x-1, c.sizeX-y-1
+	}
+	if y%2 == 1 {
+		x = c.sizeX - x - 1
+	}
+	page := c.sizeY * z
+	return c.canvas.At(x, page+y).(color.RGBA)
+}
+
+
 // Render sends the colour data previously associated with LEDs using the Set
 // function to the LEDs themselves.
 func (c *Cubebit) Render() {
