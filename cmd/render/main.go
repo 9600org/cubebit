@@ -13,7 +13,7 @@ import (
 
 func main() {
 	config := ws281x.DefaultConfig
-	config.Pin = 18
+	config.Brightness = 255
 	c, done, err := cubebit.New(&config, 5, 5, 5)
 	if err != nil {
 		log.Fatalf("Failed to create new cubebit: %v", err)
